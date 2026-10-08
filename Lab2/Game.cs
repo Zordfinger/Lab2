@@ -43,8 +43,8 @@ class Game
         string[] FirstCommand = commands[0];
         GameFieldSize = int.Parse(FirstCommand[0]);
 
-        Mouse Mouse = new(GameFieldSize, "mouse");
-        Cat Cat = new(GameFieldSize, "cat");
+        Mouse Mouse = new(GameFieldSize);
+        Cat Cat = new(GameFieldSize);
 
         sb.AppendLine("Cat and Mouse");
         sb.AppendLine("");

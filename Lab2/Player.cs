@@ -1,28 +1,9 @@
-﻿public abstract class Player
+﻿public abstract class Player(int GameFieldSize)
 {
-    public enum PlayerType
-    {
-        Cat,
-        Mouse,
-        Unknown
-    }
-
-    public PlayerType Type { get; private set; }
     public PlayerState State = PlayerState.UnInicialized;
     public int Position { get; private set; } = -1;
     public int Distance { get; private set; } = 0;
-    private int GameFieldSize;
 
-    public Player(int gameFieldSize, string type)
-    {
-        GameFieldSize = gameFieldSize;
-        switch (type)
-        {
-            case    "cat": Type = PlayerType.Cat; break;
-            case "mouse": Type = PlayerType.Mouse; break;
-            default: break;
-        }
-    }
 
     public void Move(int steps)
     {

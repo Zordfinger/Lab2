@@ -1,6 +1,6 @@
 ﻿public class Cat : Player
 {
-    public Cat(int gameFieldSize, string type) : base(gameFieldSize, type)
+    public Cat(int gameFieldSize) : base(gameFieldSize)
     {
     }
 }
