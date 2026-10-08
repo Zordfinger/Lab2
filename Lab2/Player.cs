@@ -1,16 +1,36 @@
-﻿class Player(int GameFieldSize)
+﻿class Player
 {
-    private PlayerState State = PlayerState.UnInicialized;
-    private int Position = -1;
-    private int Distance = 0;
-
-    void Move(int steps)
+    public enum PlayerType
     {
-        int posbysteps = Position + steps % GameFieldSize;
+        Cat,
+        Mouse,
+        Unknown
+    }
+
+    public PlayerType Type { get; private set; }
+    public PlayerState State = PlayerState.UnInicialized;
+    public int Position { get; private set; } = -1;
+    public int Distance { get; private set; } = 0;
+    private int GameFieldSize;
+
+    public Player(int gameFieldSize, string type)
+    {
+        GameFieldSize = gameFieldSize;
+        switch (type)
+        {
+            case    "cat": Type = PlayerType.Cat; break;
+            case "mouse": Type = PlayerType.Mouse; break;
+            default: break;
+        }
+    }
+
+    public void Move(int steps)
+    {
+        int posbysteps = (Position + steps) % GameFieldSize;
+
         if (State == PlayerState.UnInicialized)
         {
-            Position++;
-            posbysteps = Position + steps % GameFieldSize;
+            posbysteps = (0 + steps) % GameFieldSize;
             State = PlayerState.InGame;
             Position = posbysteps < 0 ? posbysteps + GameFieldSize : posbysteps;
             return;
