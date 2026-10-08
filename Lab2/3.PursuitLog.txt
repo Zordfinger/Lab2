@@ -17,4 +17,4 @@ Cat and Mouse
 Distance traveled Cat   Mouse
                   60    24   
 
-Mouse caught at 8
+Mouse caught at: 8
