@@ -102,7 +102,7 @@ class Game
         sb.AppendLine($"{"",17} {Cat.Distance,-5} {Mouse.Distance,-5}");
         sb.AppendLine();
         sb.AppendLine(
-            Cat.State == PlayerState.Winner ? $"Mouse caught at {Cat.Position}" : "Mouse evaded cat"
+            Cat.State == PlayerState.Winner ? $"Mouse caught at: {Cat.Position}" : "Mouse evaded Cat"
             );
 
         try
