@@ -3,7 +3,6 @@ using System.Text.RegularExpressions;
 
 class Game
 {
-    GameState State = GameState.Started;
     string CommandFile;
     string ResultFile;
     int GameFieldSize;
@@ -44,8 +43,8 @@ class Game
         string[] FirstCommand = commands[0];
         GameFieldSize = int.Parse(FirstCommand[0]);
 
-        Player Mouse = new(GameFieldSize, "mouse");
-        Player Cat = new(GameFieldSize, "cat");
+        Mouse Mouse = new(GameFieldSize, "mouse");
+        Cat Cat = new(GameFieldSize, "cat");
 
         sb.AppendLine("Cat and Mouse");
         sb.AppendLine("");
@@ -54,8 +53,6 @@ class Game
 
         foreach (string[] command in commands.Skip(1))
         {
-            if (State == GameState.Ended)
-                break;
 
             switch (command[0]) {
                 case "M": 
@@ -91,7 +88,7 @@ class Game
             {
                 Cat.State = PlayerState.Winner;
                 Mouse.State = PlayerState.Loser;
-                State = GameState.Ended;
+                break;
             }
         }
 
